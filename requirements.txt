@@ -1,0 +1,6 @@
+atheris==2.3.0
+cffi==1.16.0
+coverage==7.6.0
+cryptography==42.0.8
+pycparser==2.22
+pycryptodome==3.20.0
