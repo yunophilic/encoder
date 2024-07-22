@@ -15,7 +15,7 @@ def encode(str_to_encode: str) -> str:
         "key": str(key, encoding="utf-8"),
     }
     compressed = zlib.compress(
-        bytes(json.dumps(d), encoding="utf-8"),
+        bytes( json.dumps(d, separators=(',', ':')), encoding="utf-8" ),
         level=zlib.Z_BEST_COMPRESSION
     )
     b64_bytes = base64.b64encode(compressed)
@@ -32,7 +32,7 @@ def decode(str_to_decode: str) -> str:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        prog='encode.py',
+        prog='encoder.py',
         description=f'Encode into base64 string')
     parser.add_argument("input", help="input text or filename if using -f flag")
     parser.add_argument('-f', '--file', action='store_true', help="flag to read input from file")
